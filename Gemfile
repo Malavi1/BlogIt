@@ -71,3 +71,4 @@ gem "devise", "~> 4.9"
 gem "tailwindcss-rails", "~> 2.4"
 gem 'pg'
 gem 'rails_12factor', group: :production
+gem 'will_paginate', '~> 4.0'

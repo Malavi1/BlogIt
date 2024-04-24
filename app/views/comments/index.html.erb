@@ -1,7 +1,8 @@
-<h3>Comments</h3>
-<% blog_post.comments.each do |comment| %>
-  <div class="flex flex-row justify-between">
-    <p class="text-black"> ↪ <%= comment.body %></p>
-    <p class="text-gray-500"><%=current_user.email%></p>
-  </div>
-<% end %>
+<h3 class="decoration-double">Comments</h3>
+
+  <% blog_post.comments.each do |comment| %>
+    <div class="flex flex-row justify-between border px-5">
+      <p class="text-black"> ↪ <%= comment.body %></p>
+      <p class="text-gray-500"><span class="font-bold text-black mr-1">~</span><%=comment.user.email%></p>
+    </div>
+  <% end %>

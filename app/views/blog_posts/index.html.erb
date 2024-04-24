@@ -15,14 +15,14 @@
 <h3 class="text-center text-gray-300 underline decoration-dotted">Enjoy Your Personalized Feed Here</h3>
 
 <% @blog_posts.each do |blog_post|%>
-    <div class="m-0">
+    <div class="border-t-4 py-5 mb-1 border-neutral-600">
         <h1><%= link_to blog_post.title, blog_post, style: 'text-decoration: none;'%></h1> 
         <div class="flex flex-row  justify-center gap-2 text-gray-500">
           <p class="text-black text-bold"><%=blog_post.user.email%></p>
           <p><span class="mr-2">·</span><%=blog_post.created_at.strftime("%Y-%m-%d")%></p>
           <p><span class="mr-2">·</span>📖 2 min read</p>
         </div>
-        <%=truncate(blog_post.body, length: 200 )%>
-        
+        <%= truncate(blog_post.body.body.to_plain_text, length: 200) %>   
     </div>
 <%end%>
+<%=will_paginate @blog_posts, class:"text-center w-fit p-2 bg-gray-100 rounded m-auto" %>

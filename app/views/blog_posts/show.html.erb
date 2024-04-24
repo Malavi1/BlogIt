@@ -14,6 +14,6 @@
 </p>
 
 <%= render template: 'comments/index', locals: { blog_post: @blog_post } %>
-<%if user_signed_in?%>
+<%if user_signed_in? %>
     <%= render template: 'comments/new', locals:{blog_post: @blog_post, user: current_user} %>
 <%end%>

@@ -2,7 +2,7 @@ class BlogPostsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     before_action :set_blog_post, except: [:index, :new, :create] 
     def index 
-        @blog_posts = BlogPost.all 
+        @blog_posts = BlogPost.paginate(page: params[:page], per_page: 4) 
     end
     def show 
         @blog_post = BlogPost.find(params[:id])

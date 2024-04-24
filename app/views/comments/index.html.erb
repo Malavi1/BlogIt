@@ -1,0 +1,7 @@
+<h3>Comments</h3>
+<% blog_post.comments.each do |comment| %>
+  <div class="flex flex-row justify-between">
+    <p class="text-black"> ↪ <%= comment.body %></p>
+    <p class="text-gray-500"><%=current_user.email%></p>
+  </div>
+<% end %>

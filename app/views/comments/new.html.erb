@@ -1,0 +1,12 @@
+
+<%= form_with model: @comment do |f| %>
+  <div>
+    <%=f.hidden_field :blog_post_id, value: blog_post.id%>
+    <%=f.hidden_field :user_id, value: user.id %>
+    <%#= f.label :body %>
+    <%= f.text_area :body, placeholder: 'Write how it is..', class: 'w-full border-black focus:outline-none focus:border-black text-sm placeholder:italic placeholder:text-gray-300', rows: 2 %>
+  </div>
+  <div>
+    <%= f.button 'Comment', class: 'bg-black text-white px-3 py-2 rounded font-bold' %>
+  </div>
+<% end %>

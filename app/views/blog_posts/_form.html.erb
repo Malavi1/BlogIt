@@ -1,0 +1,23 @@
+<%=form_with model: blog_post do |f|%>
+    <%if f.object.errors.any?%>
+        <div>
+            <%f.object.errors.full_messages.each do |message|%>
+                <div style = 'color:red;'>
+                    <%=message%>
+                </div>
+            <%end%>
+        </div>
+    <%end%>
+    <div class="flex justify-between mb-5">
+        <%=link_to ' ⇦ Back', root_path ,class:' bg-black text-white px-3 py-2 rounded font-bold', style:'text-decoration:none;'%>
+        <%=f.button 'Publish',class:' bg-black text-white px-3 py-2 rounded font-bold'%>
+    </div>
+    <div>
+        <%#=f.label :title%>
+        <%=f.text_field :title,  placeholder:'Title ....', class:'mb-5 w-full border-none focus:outline-none focus:ring-transparent text-2xl placeholder:italic placeholder:text-gray-300'%>
+    </div>
+    <div>
+        <%#=f.label :body%>
+        <%=f.text_area :body, placeholder:'Start Writing ...', class:'w-full border-none focus:outline-none focus:ring-transparent text-xl placeholder:italic placeholder:text-gray-300', rows: 15%>
+    </div>
+<%end%>

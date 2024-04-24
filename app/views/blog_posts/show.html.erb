@@ -1,0 +1,19 @@
+<div class="mb-5 flex justify-between">
+    <%=link_to '⇦ Back', root_path, class:'bg-black text-white px-3 py-2 rounded font-bold', style: 'text-decoration: none;'%> 
+    <%if user_signed_in?%>
+        <%if @blog_post.user.email===current_user.email %>
+            <%=link_to 'Edit', edit_blog_post_path(@blog_post), class:'bg-black text-white px-3 py-2 rounded font-bold', style: 'text-decoration: none;' if user_signed_in?%>
+        <%end%>
+    <%end%>
+</div> 
+<h1 >
+    <%=@blog_post.title%>
+</h1>
+<p>
+    <%=@blog_post.body%>
+</p>
+
+<%= render template: 'comments/index', locals: { blog_post: @blog_post } %>
+<%if user_signed_in?%>
+    <%= render template: 'comments/new', locals:{blog_post: @blog_post, user: current_user} %>
+<%end%>
